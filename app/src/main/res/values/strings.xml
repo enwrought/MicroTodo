@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Micromanagement Todo List</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="initName">Task name</string>
+
+    <string-array name="time_unit_options">
+        <item>Minutes</item>
+        <item>Hours</item>
+        <item>Points</item>
+    </string-array>
+    <string name="title_activity_add">Add New Activity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="initNewTask">Add new task</string>
+    <string name="initButtonAddTask">Add Task</string>
+
+
+</resources>
