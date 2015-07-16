@@ -47,4 +47,55 @@
         android:layout_alignParentEnd="true"
         android:onClick="finishAddingTask" />
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Can split into multple blocks"
+        android:id="@+id/switch1"
+        android:checked="true"
+        android:layout_below="@+id/timeUnits"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="10dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="10dp"
+        android:layout_alignRight="@+id/button_add_task"
+        android:layout_alignEnd="@+id/button_add_task" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hardFinishDate"
+        android:hint="@string/initHardFinishDate"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/hardFinishTime"
+        android:layout_toStartOf="@+id/hardFinishTime"
+        android:focusable="false"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Optional"
+        android:id="@+id/textView"
+        android:layout_below="@+id/switch1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button_add_task"
+        android:layout_alignEnd="@+id/button_add_task" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hardFinishTime"
+        android:layout_alignTop="@+id/hardFinishDate"
+        android:layout_alignRight="@+id/button_add_task"
+        android:layout_alignEnd="@+id/button_add_task"
+        android:hint="@string/initHardFinishTime"
+        android:inputType="time" />
+
 </RelativeLayout>
