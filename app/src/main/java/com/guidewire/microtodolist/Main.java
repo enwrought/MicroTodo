@@ -12,20 +12,22 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
+@SuppressWarnings("deprecation")
 public class Main extends ActionBarActivity {
     protected ArrayList<String> itemTexts;
     protected ArrayAdapter<String> listAdapter;
     protected ArrayList<Task> tasks;
+    public static final int REQUEST_NEW_TASK = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tasks = new ArrayList<>();
         itemTexts = new ArrayList<>();
         itemTexts.add("Hi");
         itemTexts.add("hi again.");
-        listAdapter = new ArrayAdapter<String>(this,
+        listAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 itemTexts);
         ListView list = (ListView)findViewById(R.id.taskList);
@@ -70,6 +72,17 @@ public class Main extends ActionBarActivity {
     public void addNewTask(View view) {
         Log.d("CLICK_BUTTON", "Hi!!!");
         Intent intent = new Intent(this, AddTask.class);
-        startActivity(intent);
+        intent.putExtra("parent", "Main");
+        startActivityForResult(intent, REQUEST_NEW_TASK);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_NEW_TASK && resultCode == RESULT_OK) {
+            String name = data.getStringExtra("name");
+            double time = data.getDoubleExtra("time", 30);
+
+            addTask(new Task(name, time));
+        }
     }
 }

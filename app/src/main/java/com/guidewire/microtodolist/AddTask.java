@@ -1,17 +1,21 @@
 package com.guidewire.microtodolist;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@SuppressWarnings("deprecation")
 public class AddTask extends ActionBarActivity {
 
     @Override
@@ -49,8 +53,19 @@ public class AddTask extends ActionBarActivity {
     }
 
 
-    public void addTask(View view) {
+    public void finishAddingTask(View view) {
         // Add it to Main.tasks
+        Intent intent = new Intent();
+        EditText nameView = (EditText)findViewById(R.id.taskName);
+        intent.putExtra("name", nameView.getText().toString());
+
+        EditText timeView = (EditText)findViewById(R.id.time);
+        intent.putExtra("time", Double.parseDouble(timeView.getText().toString()));
+
+        setResult(RESULT_OK, intent);
+        finish();
+
+        // TODO: if pressed back, setResult to RESULT_CANCELED
     }
     
 

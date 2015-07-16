@@ -1,6 +1,10 @@
 package com.guidewire.microtodolist;
 
-public class Task {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Task implements Parcelable {
+    private int mData;
 
     /**
      * default to 0, otherwise the timestamp that the task must be completed
@@ -34,7 +38,6 @@ public class Task {
     boolean completed;
 
     boolean scheduled;
-
     protected enum TaskType {
         TASK, APPOINTMENT, GOAL
     }
@@ -57,6 +60,31 @@ public class Task {
         completed = false;
         type = TaskType.TASK;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mData);
+    }
+
+    public static final Parcelable.Creator<Task> CREATOR = new Parcelable.Creator<Task>() {
+        public Task createFromParcel(Parcel in) {
+            return new Task(in);
+        }
+
+        public Task[] newArray(int size) {
+            return new Task[size];
+        }
+    };
+
+    private Task(Parcel in) {
+        mData = in.readInt();
+    }
+
 
     protected void aggregate_stats(double timeTaken) {
         // set time taken, update std_dev and mean of reoccuring activities
