@@ -18,8 +18,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings("deprecation")
 public class Main extends ActionBarActivity {
-    protected ArrayList<String> itemTexts;
-    protected ArrayAdapter<String> listAdapter;
+    //protected ArrayList<String> itemTexts;
+    //protected ArrayAdapter<String> listAdapter;
+    protected TaskArrayAdaptor adapter;
     protected ArrayList<Task> tasks;
     public static final int REQUEST_NEW_TASK = 1;
     SharedPreferences mPrefs;
@@ -42,12 +43,12 @@ public class Main extends ActionBarActivity {
             tasks = gson.fromJson(json, TASK_LIST_TYPE);
         }
 
-
-        itemTexts = new ArrayList<>();
+        adapter = new TaskArrayAdaptor(this, tasks);
+        ListView listView = (ListView)findViewById(R.id.taskList);
+        listView.setAdapter(adapter);
         /*
-        itemTexts.add("Hi");
-        itemTexts.add("hi again.");
-        */
+        itemTexts = new ArrayList<>();
+
         for (Task task : tasks) {
             itemTexts.add(task.toString());
         }
@@ -57,6 +58,15 @@ public class Main extends ActionBarActivity {
                 itemTexts);
         ListView list = (ListView)findViewById(R.id.taskList);
         list.setAdapter(listAdapter);
+        */
+
+
+
+    }
+
+    public void removeTask(Task task) {
+        tasks.remove(task);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -72,10 +82,13 @@ public class Main extends ActionBarActivity {
 
 
     public void addTask(Task task) {
+        //tasks.get(tasks.size()-1);
         tasks.add(task);
         //updateDisplay();
-        itemTexts.add(task.toString());
-        listAdapter.notifyDataSetChanged();
+        //itemTexts.add(task.toString());
+        //listAdapter.notifyDataSetChanged();
+
+        adapter.notifyDataSetChanged();
     }
 
     /*
@@ -119,7 +132,16 @@ public class Main extends ActionBarActivity {
             String name = data.getStringExtra("name");
             double time = data.getDoubleExtra("time", 30);
 
-            addTask(new Task(name, time));
+            if (data.hasExtra("day") && data.hasExtra("month") && data.hasExtra("year")) {
+                int year = data.getIntExtra("year", 0);
+                int month = data.getIntExtra("month", 0);
+                int day = data.getIntExtra("day", 0);
+                addTask(new Task(name, time, year, month, day));
+            }
+            else {
+                addTask(new Task(name, time));
+            }
+
         }
     }
 }

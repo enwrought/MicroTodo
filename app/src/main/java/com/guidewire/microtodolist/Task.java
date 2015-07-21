@@ -4,6 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Task implements Parcelable {
+    /**
+     * Year of hard finish date
+     */
+    protected int year;
+    /**
+     * Month of hard finish date
+     */
+    protected int month;
+    /**
+     * Day of hard finish date
+     */
+    protected int day;
+
     private int mData;
 
     /**
@@ -38,9 +51,29 @@ public class Task implements Parcelable {
     boolean completed;
 
     boolean scheduled;
+    protected boolean placeHolder;
+
+    public String getFinishDate() {
+        return month + "/" + day + "/" + year;
+    }
+
+    public void complete() {
+        completed = true;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
     protected enum TaskType {
         TASK, APPOINTMENT, GOAL
     }
+
+
 
     TaskType type;
 
@@ -61,6 +94,18 @@ public class Task implements Parcelable {
         type = TaskType.TASK;
     }
 
+    public Task(String name, double time, int year, int month, int day) {
+        this(name, time);
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+    public Task(int minutes) {
+        this.time = minutes;
+        placeHolder = true;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -69,6 +114,18 @@ public class Task implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(mData);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getMinutes() {
+        return time;
+    }
+
+    public boolean isPlaceHolder() {
+        return placeHolder;
     }
 
     public static final Parcelable.Creator<Task> CREATOR = new Parcelable.Creator<Task>() {

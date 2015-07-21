@@ -13,6 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:inputType="textEmailSubject"
         android:hint="@string/initName" />
 
     <EditText
@@ -29,12 +30,12 @@
 
     <Spinner
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:id="@+id/timeUnits"
-        android:layout_below="@+id/taskName"
-        android:layout_alignRight="@+id/taskName"
-        android:layout_alignEnd="@+id/taskName"
-        android:layout_toRightOf="@+id/time"
+        android:layout_alignTop="@id/time"
+        android:layout_alignBottom="@id/time"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/time"
         android:spinnerMode="dropdown" />
 
     <Button
@@ -50,18 +51,17 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Can split into multple blocks"
+        android:text="Can split into multiple blocks"
         android:id="@+id/switch1"
         android:checked="true"
-        android:layout_below="@+id/timeUnits"
+        android:layout_below="@id/timeUnits"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingTop="10dp"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="10dp"
-        android:layout_alignRight="@+id/button_add_task"
-        android:layout_alignEnd="@+id/button_add_task" />
+        android:layout_alignParentRight="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -71,8 +71,6 @@
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/hardFinishTime"
-        android:layout_toStartOf="@+id/hardFinishTime"
         android:focusable="false"
         />
 
@@ -82,19 +80,18 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Optional"
         android:id="@+id/textView"
-        android:layout_below="@+id/switch1"
+        android:layout_below="@id/switch1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/button_add_task"
-        android:layout_alignEnd="@+id/button_add_task" />
+        android:layout_alignParentRight="true" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:id="@+id/hardFinishTime"
-        android:layout_alignTop="@+id/hardFinishDate"
-        android:layout_alignRight="@+id/button_add_task"
-        android:layout_alignEnd="@+id/button_add_task"
+        android:layout_alignTop="@id/hardFinishDate"
+        android:layout_alignBottom="@id/hardFinishDate"
+        android:layout_alignParentRight="true"
         android:hint="@string/initHardFinishTime"
         android:inputType="time" />
 

@@ -163,7 +163,8 @@ public class AddTask extends ActionBarActivity {
         else {
             // Pass in date
             intent.putExtra("year", hardFinishDateCal.get(Calendar.YEAR));
-            intent.putExtra("month", hardFinishDateCal.get(Calendar.MONTH));
+            // To get the correct month, add 1
+            intent.putExtra("month", hardFinishDateCal.get(Calendar.MONTH) + 1);
             intent.putExtra("day", hardFinishDateCal.get(Calendar.DAY_OF_MONTH));
 
         }
