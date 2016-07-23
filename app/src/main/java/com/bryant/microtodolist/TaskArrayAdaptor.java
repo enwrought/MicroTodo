@@ -1,18 +1,17 @@
-package com.guidewire.microtodolist;
+package com.bryant.microtodolist;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Space;
 import android.widget.TextView;
 
@@ -68,7 +67,7 @@ public class TaskArrayAdaptor extends ArrayAdapter<Task> {
 
         convertView.setBackgroundColor(palette[position % palette.length]);
 
-        Button editButton = (Button)convertView.findViewById(R.id.editButton);
+        ImageButton editButton = (ImageButton)convertView.findViewById(R.id.editButton);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +76,7 @@ public class TaskArrayAdaptor extends ArrayAdapter<Task> {
             }
         });
 
-        Button deleteButton = (Button)convertView.findViewById(R.id.deleteButton);
+        ImageButton deleteButton = (ImageButton)convertView.findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +85,7 @@ public class TaskArrayAdaptor extends ArrayAdapter<Task> {
             }
         });
 
-        Button doneButton = (Button)convertView.findViewById(R.id.doneButton);
+        ImageButton doneButton = (ImageButton)convertView.findViewById(R.id.doneButton);
         doneButton.setOnClickListener(new View.OnClickListener() {
             private Task task;
             public View.OnClickListener setTask(Task task) {

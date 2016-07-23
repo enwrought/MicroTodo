@@ -1,4 +1,4 @@
-package com.guidewire.microtodolist;
+package com.bryant.microtodolist;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;

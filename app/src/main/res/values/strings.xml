@@ -18,5 +18,32 @@
     <string name="initHardFinishTime">Hard finish time</string>
     <string name="initHardFinishDate">Hard finish date</string>
 
+    <string name="view_app">View in MicroTODO App</string>
+
+    <string name="facebook_app_id">1590975197861556</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="time_left_header_text">Remaining productive time today:</string>
+    <string name="edit_btn_hint">Edit Task</string>
+    <string name="delete_btn_hint">Delete Task</string>
+    <string name="finished_btn_hint">Finished Task!</string>
+    <string name="set">Set</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string name="done_with_day">Done! Good job bud.</string>
+
 
 </resources>

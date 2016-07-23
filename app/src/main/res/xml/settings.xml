@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <PreferenceCategory android:title="Main Page Options"
+      android:key="main_settings">
+
+      <CheckBoxPreference
+          android:key="show_notifications"
+          android:title="Show notifications"
+          android:defaultValue="true" />
+      <CheckBoxPreference
+          android:key="show_countdown"
+          android:summary="Displays the amount of remaining time left in the work day."
+          android:title="Show countdown"
+          android:defaultValue="true" />
+
+      <com.bryant.microtodolist.TimePreference
+          android:key="working_start_time"
+          android:title="Working start time"
+          android:defaultValue="08:00" />
+      <com.bryant.microtodolist.TimePreference
+          android:key="working_end_time"
+          android:title="Working end time"
+          android:defaultValue="20:00" />
+
+  </PreferenceCategory>
+</PreferenceScreen>
